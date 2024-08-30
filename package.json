@@ -9,13 +9,15 @@
     "clean": "npm run clean:dist && npm run clean:modules",
     "lint": "npx eslint src/**/*.ts",
     "lint:fix": "npx eslint --fix src/**/*.ts && npx eslint --fix test/**/*.ts",
+    "fmt": "npx prettier . --write",
     "prebuild": "npm run clean:dist",
     "build": "tsc",
     "start": "node dist/src/index",
     "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "pretest": "npm run build",
     "test": "mocha dist/test/**/*.js",
-    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'"
+    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
@@ -27,6 +29,8 @@
     "@typescript-eslint/parser": "^5.42.1",
     "chai": "^4.3.7",
     "eslint": "^8.27.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "mocha": "^10.1.0",
     "prettier": "3.3.3",
     "rimraf": "^3.0.2",
